@@ -1,1 +1,4 @@
-# Xablu.ADAL
+# Xablu ADAL
+INFO
+
+## Installation
