@@ -1,3 +1,3 @@
 # Xablu.ADAL
 
-WIP
+WIP=work in progress
