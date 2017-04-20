@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xablu.ADAL", "Xablu.ADAL\Xablu.ADAL.csproj", "{85A74DD8-A602-4214-9574-48B4C02C3B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xablu.ADAL.Droid", "Xablu.ADAL.Droid\Xablu.ADAL.Droid.csproj", "{C906ADA1-B23F-491C-811F-B7A5010AE4CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85A74DD8-A602-4214-9574-48B4C02C3B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85A74DD8-A602-4214-9574-48B4C02C3B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85A74DD8-A602-4214-9574-48B4C02C3B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85A74DD8-A602-4214-9574-48B4C02C3B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C906ADA1-B23F-491C-811F-B7A5010AE4CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C906ADA1-B23F-491C-811F-B7A5010AE4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C906ADA1-B23F-491C-811F-B7A5010AE4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C906ADA1-B23F-491C-811F-B7A5010AE4CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

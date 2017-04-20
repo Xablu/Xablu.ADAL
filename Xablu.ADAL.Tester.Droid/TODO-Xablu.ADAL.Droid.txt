@@ -1,0 +1,5 @@
+﻿- add a reference to Xablu.ADAL
+- add a reference to Xablu.ADAL.Droid
+
+Add XabluADALBootstrap file
+
