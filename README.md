@@ -1,3 +1,4 @@
 # Xablu.ADAL
+INFO
 
-WIP=work in progress
+## Installation
