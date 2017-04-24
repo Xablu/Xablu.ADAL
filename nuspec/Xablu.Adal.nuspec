@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Xablu.Adal</id>
+        <version>0.1.0</version>
+        <title>Azure AD authentication Library wrapper by Xablu</title>
+        <authors>Xablu</authors>
+        <owners>Xablu</owners>
+        <licenseUrl>https://github.com/Xablu/Xablu.Adal/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Xablu/Xablu.Adal</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/Xablu/Xablu.Adal/master/icon_xablu.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>The Xablu Azure AD authentication library is a wrapper which aims to simplify the cross-platform implementation of an ADAL login flow.</description>
+        <summary>Azure AD authentication library wrapper to simplify ADAL login</summary>
+        <tags>xamarin, monodroid, C#, xamarin.android, android, ios, uwp, Windows, tvOS, Mac, MacOS, Xablu, .NET</tags>
+        <dependencies>
+            <group targetFramework="MonoAndroid">
+                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.13.9" />
+                <dependency id="Plugin.CurrentActivity" version="1.0.1" />
+            </group>
+            <group targetFramework="Xamarin.iOS10">
+                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.13.9" />
+            </group>
+            <group targetFramework="win8">
+                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.13.9" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <!-- Core -->
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\portable-net45+win8\Plugin.Xablu.Adal.Abstractions.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\portable-net45+win8\Plugin.Xablu.Adal.Abstractions.xml" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal\bin\Release\Plugin.Xablu.Adal.dll" target="lib\portable-net45+win8\Plugin.Xablu.Adal.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal\bin\Release\Plugin.Xablu.Adal.xml" target="lib\portable-net45+win8\Plugin.Xablu.Adal.xml" />
+        
+        <!-- Xamarin.Android -->
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\MonoAndroid10\Plugin.Xablu.Adal.Abstractions.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\MonoAndroid10\Plugin.Xablu.Adal.Abstractions.xml" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Android\bin\Release\Plugin.Xablu.Adal.dll" target="lib\MonoAndroid10\Plugin.Xablu.Adal.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Android\bin\Release\Plugin.Xablu.Adal.xml" target="lib\MonoAndroid10\Plugin.Xablu.Adal.xml" />
+
+        <!-- Xamarin.iOS -->
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\MonoTouch10\Plugin.Xablu.Adal.Abstractions.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\MonoTouch10\Plugin.Xablu.Adal.Abstractions.xml" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.iOS\bin\iPhone\Release\Plugin.Xablu.Adal.dll" target="lib\MonoTouch10\Plugin.Xablu.Adal.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.iOS\bin\iPhone\Release\Plugin.Xablu.Adal.xml" target="lib\MonoTouch10\Plugin.Xablu.Adal.xml" />
+        
+        <!-- Windows Store -->
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\win8\Plugin.Xablu.Adal.Abstractions.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\win8\Plugin.Xablu.Adal.Abstractions.xml" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.WindowsStore\bin\Release\Plugin.Xablu.Adal.dll" target="lib\win8\Plugin.Xablu.Adal.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.WindowsStore\bin\Release\Plugin.Xablu.Adal.xml" target="lib\win8\Plugin.Xablu.Adal.xml" />
+        
+        <!-- UWP -->
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\UAP10\Plugin.Xablu.Adal.Abstractions.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\UAP10\Plugin.Xablu.Adal.Abstractions.xml" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.UWP\bin\Release\Plugin.Xablu.Adal.dll" target="lib\UAP10\Plugin.Xablu.Adal.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.UWP\bin\Release\Plugin.Xablu.Adal.xml" target="lib\UAP10\Plugin.Xablu.Adal.xml" />
+        
+    </files>
+</package>
