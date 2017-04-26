@@ -38,5 +38,12 @@
         <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\MonoAndroid10\Plugin.Xablu.Adal.Abstractions.xml" />
         <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Android\bin\Release\Plugin.Xablu.Adal.dll" target="lib\MonoAndroid10\Plugin.Xablu.Adal.dll" />
         <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Android\bin\Release\Plugin.Xablu.Adal.xml" target="lib\MonoAndroid10\Plugin.Xablu.Adal.xml" />
+
+        <!-- Xamarin.iOS -->
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\MonoTouch10\Plugin.Xablu.Adal.Abstractions.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\MonoTouch10\Plugin.Xablu.Adal.Abstractions.xml" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.iOS\bin\iPhone\Release\Plugin.Xablu.Adal.dll" target="lib\MonoTouch10\Plugin.Xablu.Adal.dll" />
+        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.iOS\bin\iPhone\Release\Plugin.Xablu.Adal.xml" target="lib\MonoTouch10\Plugin.Xablu.Adal.xml" />
+
     </files>
 </package>
