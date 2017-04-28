@@ -44,18 +44,6 @@
         <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\MonoTouch10\Plugin.Xablu.Adal.Abstractions.xml" />
         <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.iOS\bin\iPhone\Release\Plugin.Xablu.Adal.dll" target="lib\MonoTouch10\Plugin.Xablu.Adal.dll" />
         <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.iOS\bin\iPhone\Release\Plugin.Xablu.Adal.xml" target="lib\MonoTouch10\Plugin.Xablu.Adal.xml" />
-        
-        <!-- Windows Store -->
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\win8\Plugin.Xablu.Adal.Abstractions.dll" />
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\win8\Plugin.Xablu.Adal.Abstractions.xml" />
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.WindowsStore\bin\Release\Plugin.Xablu.Adal.dll" target="lib\win8\Plugin.Xablu.Adal.dll" />
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.WindowsStore\bin\Release\Plugin.Xablu.Adal.xml" target="lib\win8\Plugin.Xablu.Adal.xml" />
-        
-        <!-- UWP -->
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.dll" target="lib\UAP10\Plugin.Xablu.Adal.Abstractions.dll" />
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\bin\Release\Plugin.Xablu.Adal.Abstractions.xml" target="lib\UAP10\Plugin.Xablu.Adal.Abstractions.xml" />
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.UWP\bin\Release\Plugin.Xablu.Adal.dll" target="lib\UAP10\Plugin.Xablu.Adal.dll" />
-        <file src="..\src\Xablu.Adal\Plugin.Xablu.Adal.UWP\bin\Release\Plugin.Xablu.Adal.xml" target="lib\UAP10\Plugin.Xablu.Adal.xml" />
-        
+
     </files>
 </package>
