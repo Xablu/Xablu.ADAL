@@ -22,7 +22,8 @@ namespace Plugin.Xablu.Adal.Abstractions
         /// Returns the currently logged in user or null if no valid login exists.
         /// </summary>
         /// <returns>The logged in user, or null if no active login exists</returns>
-        Task<ActiveDirectoryUser> GetLoggedInUserAsync();
+        /// <param name="forceRefresh">If set to <c>true</c> force refresh and refresh token.</param>
+        Task<ActiveDirectoryUser> GetLoggedInUserAsync(bool forceRefresh);
 
         /// <summary>
         /// Returns the currently logged in user and shows the login page
