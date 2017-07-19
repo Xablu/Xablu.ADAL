@@ -33,10 +33,7 @@ namespace Plugin.Xablu.Adal.Abstractions
 
         public async Task<ActiveDirectoryUser> GetLoggedInUserAsync(bool forceRefresh = false)
         {
-            if (loggedInUser == null)
-                await GetOrSignInUserAsync(allowUserInteraction: false);
-
-            if (forceRefresh)
+            if (loggedInUser == null || forceRefresh)
                 loggedInUser = await GetOrSignInUserAsync(allowUserInteraction: false);
 
             return loggedInUser;
