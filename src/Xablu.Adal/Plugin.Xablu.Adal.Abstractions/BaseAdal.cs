@@ -31,9 +31,14 @@ namespace Plugin.Xablu.Adal.Abstractions
             return loggedInUser ?? await GetOrSignInUserAsync(allowUserInteraction: true);
         }
 
-        public async Task<ActiveDirectoryUser> GetLoggedInUserAsync()
+        public async Task<ActiveDirectoryUser> GetLoggedInUserAsync(bool forceRefresh = false)
         {
-            if (loggedInUser == null) await GetOrSignInUserAsync(allowUserInteraction: false);
+            if (loggedInUser == null)
+                await GetOrSignInUserAsync(allowUserInteraction: false);
+
+            if (forceRefresh)
+                loggedInUser = await GetOrSignInUserAsync(allowUserInteraction: false);
+
             return loggedInUser;
         }
 
