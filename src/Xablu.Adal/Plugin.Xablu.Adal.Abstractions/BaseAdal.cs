@@ -60,7 +60,7 @@ namespace Plugin.Xablu.Adal.Abstractions
             var userId = await Persistence.RetrieveUserId();
             var tokenCacheBytes = await Persistence.RetrieveTokenCache();
             var tokenCache = new TokenCache();
-            if (tokenCacheBytes != null)
+            if (tokenCacheBytes != null && tokenCacheBytes?.Length > 0)
             {
                 try
                 {
