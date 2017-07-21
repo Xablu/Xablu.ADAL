@@ -77,7 +77,7 @@ namespace Plugin.Xablu.Adal.Abstractions
             var authContext = new AuthenticationContext(configuration.Authority, tokenCache);
             var platformParams = await GetPlatformParams();
 
-            if (userId != null)
+            if (userId != null && userId != String.Empty)
             {
                 try
                 {
