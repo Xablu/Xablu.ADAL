@@ -8,13 +8,13 @@ namespace Plugin.Xablu.Adal.Abstractions
 {
     public abstract class BaseAdal : IAdal
     {
+        public IAdalPersistence Persistence { get; set; }
+
         private AdalConfiguration configuration;
         private ActiveDirectoryUser loggedInUser;
 
         private SemaphoreSlim loginSemaphore = new SemaphoreSlim(1);
         private SemaphoreSlim loginFlowFinishedSemaphore = new SemaphoreSlim(0);
-
-        public IAdalPersistence Persistence { get; set; }
 
         public BaseAdal()
         {
@@ -60,7 +60,7 @@ namespace Plugin.Xablu.Adal.Abstractions
             var userId = await Persistence.RetrieveUserId();
             var tokenCacheBytes = await Persistence.RetrieveTokenCache();
             var tokenCache = new TokenCache();
-            if (tokenCacheBytes != null)
+            if (tokenCacheBytes != null && tokenCacheBytes?.Length > 0)
             {
                 try
                 {
@@ -77,7 +77,7 @@ namespace Plugin.Xablu.Adal.Abstractions
             var authContext = new AuthenticationContext(configuration.Authority, tokenCache);
             var platformParams = await GetPlatformParams();
 
-            if (userId != null)
+            if (userId != null && userId != String.Empty)
             {
                 try
                 {
