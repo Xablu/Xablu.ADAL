@@ -1,6 +1,7 @@
 #tool nuget:?package=GitVersion.CommandLine
-#tool nuget:?package=gitlink
+#tool nuget:?package=gitlink&version=2.4.0
 #tool nuget:?package=vswhere
+#tool nuget:?package=NUnit.ConsoleRunner
 #addin nuget:?package=Cake.Incubator
 #addin nuget:?package=Cake.Git
 
@@ -52,7 +53,8 @@ Task("Restore")
 	.IsDependentOn("ResolveBuildTools")
 	.Does(() => {
 	NuGetRestore(sln, new NuGetRestoreSettings {
-		ToolPath = "tools/nuget.exe"
+		ToolPath = "tools/nuget.exe",
+		Verbosity = NuGetVerbosity.Quiet
 	});
 	// MSBuild(sln, settings => settings.WithTarget("Restore"));
 });
@@ -67,7 +69,8 @@ Task("Build")
 	var settings = new MSBuildSettings 
 	{
 		Configuration = "Release",
-		ToolPath = msBuildPath
+		ToolPath = msBuildPath,
+		Verbosity = Verbosity.Minimal
 	};
 
 	settings.Properties.Add("DebugSymbols", new List<string> { "True" });
@@ -76,8 +79,15 @@ Task("Build")
 	MSBuild(sln, settings);
 });
 
-Task("GitLink")
+Task("UnitTest")
 	.IsDependentOn("Build")
+	.Does(() =>
+{
+	
+});
+
+Task("GitLink")
+	.IsDependentOn("UnitTest")
 	//pdbstr.exe and costura are not xplat currently
 	.WithCriteria(() => IsRunningOnWindows())
 	.WithCriteria(() => 
@@ -85,49 +95,58 @@ Task("GitLink")
 		IsMasterOrReleases())
 	.Does(() => 
 {
-    GitLink(sln.GetDirectory(), 
-        new GitLinkSettings {
-            RepositoryUrl = "https://github.com/Xablu/Xablu.ADAL",
-            ArgumentCustomization = args => args.Append("-ignore apiclient.sample")
-        });
+	var projectsToIgnore = new string[] {
+		"Sample",
+		"Sample.Droid",
+		"Sample.iOS"
+	};
+
+	GitLink("./", 
+		new GitLinkSettings {
+			RepositoryUrl = "https://github.com/Xablu/Xablu.Adal",
+			Configuration = "Release",
+			SolutionFileName = "src/Xablu.Adal.sln",
+			ArgumentCustomization = args => args.Append("-ignore " + string.Join(",", projectsToIgnore))
+		});
 });
 
 Task("Package")
-    .IsDependentOn("GitLink")
-    .Does(() => 
+	.IsDependentOn("GitLink")
+	.WithCriteria(() => 
+		StringComparer.OrdinalIgnoreCase.Equals(versionInfo.BranchName, "develop") || 
+		IsMasterOrReleases())
+	.Does(() => 
 {
-    var nugetSettings = new NuGetPackSettings {
+	var nugetSettings = new NuGetPackSettings {
 		Authors = new [] { "Xablu" },
-		Owners = new [] { "Xablu" },
-		IconUrl = new Uri("https://raw.githubusercontent.com/Xablu/Xablu.Adal/master/icon_xablu.png"),
-		ProjectUrl = new Uri("https://github.com/Xablu/Xablu.Adal"),
-		LicenseUrl = new Uri("https://github.com/Xablu/Xablu.Adal/blob/master/LICENSE"),
-		Copyright = "Copyright (c) Xablu",
-		RequireLicenseAcceptance = false,
-		Version = versionInfo.NuGetVersion,
-		Symbols = false,
-		NoPackageAnalysis = true,
-		OutputDirectory = outputDir,
-		Verbosity = NuGetVerbosity.Detailed,
-		BasePath = "./nuspec"
-    };
+        Owners = new [] { "Xablu" },
+        IconUrl = new Uri("https://raw.githubusercontent.com/Xablu/Xablu.Adal/master/icon_xablu.png"),
+        ProjectUrl = new Uri("https://github.com/Xablu/Xablu.Adal"),
+        LicenseUrl = new Uri("https://github.com/Xablu/Xablu.Adal/blob/master/LICENSE"),
+        Copyright = "Copyright (c) Xablu",
+        RequireLicenseAcceptance = false,
+        Version = versionInfo.NuGetVersion,
+        Symbols = false,
+        NoPackageAnalysis = true,
+        OutputDirectory = outputDir,
+        Verbosity = NuGetVerbosity.Detailed,
+        BasePath = "./nuspec"
+	};
 
-    EnsureDirectoryExists(outputDir);
+	var nuspecs = new List<string> {
+		"Xablu.Adal.nuspec"
+	};
 
-    var nuspecs = new List<string> {
-        "Xablu.Adal.nuspec"
-    };
-
-    foreach(var nuspec in nuspecs)
-    {
-        NuGetPack(nuspecDir + "/" + nuspec, nugetSettings);
-    }
+	foreach(var nuspec in nuspecs)
+	{
+		NuGetPack(nuspecDir + "/" + nuspec, nugetSettings);
+	}
 });
 
 Task("PublishPackages")
     .IsDependentOn("Package")
     .WithCriteria(() => !BuildSystem.IsLocalBuild)
-    .WithCriteria(() => IsRepository("Xablu/Xablu.ADAL"))
+    .WithCriteria(() => IsRepository("Xablu/Xablu.Adal"))
     .WithCriteria(() => 
 		StringComparer.OrdinalIgnoreCase.Equals(versionInfo.BranchName, "develop") || 
 		IsMasterOrReleases())
@@ -144,7 +163,6 @@ Task("PublishPackages")
 	var apiKey = nugetKeySource.Item1;
 	var source = nugetKeySource.Item2;
 
-	Information("Search for nuget packages in: " + outputDir);
 	var nugetFiles = GetFiles(outputDir + "/*.nupkg");
 
 	foreach(var nugetFile in nugetFiles)
@@ -202,7 +220,7 @@ bool IsRepository(string repoName)
 	{
 		try
 		{
-			var path = MakeAbsolute(new DirectoryPath("./")).FullPath;
+			var path = MakeAbsolute(sln).GetDirectory().FullPath;
 			using (var repo = new LibGit2Sharp.Repository(path))
 			{
 				var origin = repo.Network.Remotes.FirstOrDefault(
@@ -221,7 +239,7 @@ bool IsRepository(string repoName)
 
 bool IsTagged()
 {
-	var path = MakeAbsolute(new DirectoryPath("./")).FullPath;
+	var path = MakeAbsolute(sln).GetDirectory().FullPath;
 	using (var repo = new LibGit2Sharp.Repository(path))
 	{
 		var head = repo.Head;
