@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Plugin.Xablu.Adal.Abstractions\Plugin.Xablu.Adal.Abstractions.csproj" />
-    <ProjectReference Include="..\Xablu.Adal\Plugin.Xablu.Adal.csproj" />
+    <ProjectReference Include="..\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\Plugin.Xablu.Adal.Abstractions.csproj" />
+    <ProjectReference Include="..\Xablu.Adal\Plugin.Xablu.Adal\Plugin.Xablu.Adal.csproj" />
   </ItemGroup>
 
   <ItemGroup>
