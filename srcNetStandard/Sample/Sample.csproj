@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="akavache" Version="5.0.0" />
+    <PackageReference Include="akavache.core" Version="5.0.0" />
+    <PackageReference Include="akavache.sqlite3" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Xablu.Adal\Plugin.Xablu.Adal.Abstractions\Plugin.Xablu.Adal.Abstractions.csproj" />
+    <ProjectReference Include="..\Xablu.Adal\Plugin.Xablu.Adal\Plugin.Xablu.Adal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="NETStandard.Library" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>
