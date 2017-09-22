@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.build.targets = Directory.build.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xablu.Adal", "Xablu.Adal\Xablu.Adal.csproj", "{198BBE26-852D-4B05-842B-8539BE163EE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xablu.Adal", "Xablu.Adal\Xablu.Adal.csproj", "{198BBE26-852D-4B05-842B-8539BE163EE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{B935675D-920A-402F-9F93-6839267A8D8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

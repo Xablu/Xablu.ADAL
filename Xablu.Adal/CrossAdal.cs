@@ -7,7 +7,7 @@ namespace Plugin.Xablu.Adal
     /// <summary>
     /// Cross platform Walkthrough implemenations
     /// </summary>
-    public class CrossWalkthrough
+    public class CrossAdal
     {
         static Lazy<IAdal> implementation = new Lazy<IAdal>(() => CreateAdal(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
         /// <summary>
