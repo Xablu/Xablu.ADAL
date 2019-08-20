@@ -15,14 +15,14 @@
         <tags>xamarin, monodroid, C#, xamarin.android, android, ios, uwp, Windows, tvOS, Mac, MacOS, Xablu, .NET</tags>
         <dependencies>
             <group targetFramework="MonoAndroid">
-                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.13.9" />
+                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="5.2.0" />
                 <dependency id="Plugin.CurrentActivity" version="1.0.1" />
             </group>
             <group targetFramework="Xamarin.iOS10">
-                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.13.9" />
+                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="5.2.0" />
             </group>
             <group targetFramework="win8">
-                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.13.9" />
+                <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="5.2.0" />
             </group>
         </dependencies>
     </metadata>
